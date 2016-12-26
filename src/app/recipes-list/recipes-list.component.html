@@ -1,0 +1,11 @@
+<md-card>
+  <md-list>
+    <md-list-item *ngFor="let recipe of recipesList" (click)="gotoDetail(recipe.recipe_id)">
+        <img md-list-avatar src="/assets/{{ recipe.image_name }}" alt="{{ recipe.title }}">
+        <h3 md-line> {{ recipe.title }} </h3>
+        <p md-line>
+          <span>{{ recipe.instructions }}</span>
+        </p>
+    </md-list-item>
+  </md-list>
+</md-card>

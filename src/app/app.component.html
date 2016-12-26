@@ -1,3 +1,33 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar color="primary">
+    <button md-icon-button *ngIf="showBackBtn" (click)="gotoList()"><i class="material-icons">keyboard_arrow_left</i></button>
+    <span>Recipe to list</span>
+    <span class="space-between"></span>
+    <button md-button [mdMenuTriggerFor]="menu">
+        <i class="material-icons">shopping_cart</i>
+        ({{ shoppingList.length }})
+        <i class="material-icons">keyboard_arrow_down</i>
+
+        <md-menu x-position="before" #menu="mdMenu">
+            <md-list>
+                <md-list-item *ngFor="let recipe of shoppingList; let i = index">
+                    <img md-list-avatar src="/assets/{{ recipe.image_name }}" alt="{{ recipe.title }}">
+                    <h3 md-line>{{ recipe.title }}</h3>
+                    <p md-line>
+                        <span>serving {{ recipe.servings }}</span>
+                        <button md-icon-button (click)="deleteRecipeFromCart(i)"><i class="material-icons">delete</i></button>
+                    </p>
+                </md-list-item>
+            </md-list>
+
+            <button md-menu-item (click)="gotoResults()" *ngIf="shoppingList.length > 0">
+                Results
+            </button>
+
+            <button md-menu-item disabled *ngIf="shoppingList.length === 0">
+                No recipe in your cart
+            </button>
+        </md-menu>
+    </button>
+</md-toolbar>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,25 @@
+<md-card>
+    <h1>{{ recipe.title }} <button md-button (click)="addToCart()"><i class="material-icons">add_shopping_cart</i></button></h1>
+
+    <img src="/assets/{{ recipe.image_name }}" alt="{{ recipe.title }}">
+
+    <h3>Serving</h3>
+
+    <button md-button (click)="addServings(-1)">-</button>
+    {{ recipe.servings }}
+    <button md-button (click)="addServings(1)">+</button>
+
+    <h3>Ingredients</h3>
+
+    <ul>
+        <li *ngFor="let ingredient of recipe.ingredients">
+            {{ ingredient.quantity > 0 ? (ingredient.quantity | getQty: recipe.baseServings: recipe.servings) : '' }}{{ ingredient.unit.length > 0 ? ingredient.unit + ' of' : '' }} {{ ingredient.name }}
+        </li>
+    </ul>
+
+    <h3>Instructions</h3>
+
+    <p class="instructions">
+        {{ recipe.instructions }}
+    </p>
+</md-card>

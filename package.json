@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@angular/compiler-cli": "^2.3.1",
+    "@angular/material": "^2.0.0-beta.1",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
     "angular-cli": "1.0.0-beta.24",
@@ -39,7 +40,9 @@
     "karma-cli": "^1.0.1",
     "karma-jasmine": "^1.0.2",
     "karma-remap-istanbul": "^0.2.1",
+    "ng2-redux": "^4.2.3",
     "protractor": "~4.0.13",
+    "redux": "^3.6.0",
     "ts-node": "1.2.1",
     "tslint": "^4.0.2",
     "typescript": "~2.0.3"
